@@ -2,11 +2,13 @@
 models.py will define structure of database
 '''
 
-from blogApp import db, login
+from blogApp import db, login, app
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from hashlib import md5
+import jwt
+from time import time
 
 followers = db.Table('followers',
     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
@@ -36,16 +38,6 @@ class User(UserMixin, db.Model):
 
 
   '''
-  many to many relationship
-  '''
-  followed = db.relationship(
-    'User', secondary=followers,
-    primaryjoin=(followers.c.follower_id == id),
-    secondaryjoin=(followers.c.followed_id == id),
-    backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
-
-
-  '''
   The __repr__ method tells Python how to print objects of this class, which is going to be useful for debugging. 
   '''
   def __repr__(self):
@@ -57,12 +49,21 @@ class User(UserMixin, db.Model):
   def check_password(self, password):
     return check_password_hash(self.password_hash, password)
 
-
+  # generate avatar using gravatar
   def avatar(self, size):
     digest = md5(self.email.lower().encode('utf-8')).hexdigest()
     return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(digest, size)
 
+  '''
+  many to many relationship
+  '''
+  followed = db.relationship(
+    'User', secondary=followers,
+    primaryjoin=(followers.c.follower_id == id),
+    secondaryjoin=(followers.c.followed_id == id),
+    backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
 
+  # handle follow functions
   def follow(self, user):
     if not self.is_following(user):
         self.followed.append(user)
@@ -83,7 +84,21 @@ class User(UserMixin, db.Model):
     return followed.union(own).order_by(Post.timestamp.desc())
 
 
+  # handle password reset from email
 
+  # generates a JWT token as a string
+  def get_reset_password_token(self, expires_in = 600): #expires in 10 min
+    return jwt.encode({'reset_password': self.id, 'exp': time() + expires_in}, app.config['SECRET_KEY'], algorithm='HS256').decode('utf-8')
+
+  # the method takes a token and attempts to decode, return user id if token is valid 
+  @staticmethod  # static method does not receive class as first argument
+  def verify_reset_password_token(token):
+    try:
+        id = jwt.decode(token, app.config['SECRET_KEY'],
+                        algorithms=['HS256'])['reset_password']
+    except:
+        return
+    return User.query.get(id)
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)

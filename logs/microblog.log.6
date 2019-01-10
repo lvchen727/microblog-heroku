@@ -1,0 +1,98 @@
+2019-01-09 22:35:22,060 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:47]
+2019-01-09 22:35:32,787 ERROR: Exception on /explore [GET] [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/routes.py", line 149, in explore
+    posts = Post.query.order_by(Post.timestamp.desc()).all()
+NameError: name 'Post' is not defined
+2019-01-09 22:35:33,573 ERROR: Exception on /explore [GET] [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/routes.py", line 149, in explore
+    posts = Post.query.order_by(Post.timestamp.desc()).all()
+NameError: name 'Post' is not defined
+2019-01-09 22:35:33,925 ERROR: Exception on /explore [GET] [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/routes.py", line 149, in explore
+    posts = Post.query.order_by(Post.timestamp.desc()).all()
+NameError: name 'Post' is not defined
+2019-01-09 22:35:36,435 ERROR: Exception on /explore [GET] [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/routes.py", line 149, in explore
+    posts = Post.query.order_by(Post.timestamp.desc()).all()
+NameError: name 'Post' is not defined
+2019-01-09 22:35:45,913 ERROR: Exception on /explore [GET] [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/routes.py", line 149, in explore
+    posts = Post.query.order_by(Post.timestamp.desc()).all()
+NameError: name 'Post' is not defined
+2019-01-09 22:37:48,550 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:47]
+2019-01-09 22:46:31,984 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:47]
