@@ -1,0 +1,196 @@
+# Chinese translations for PROJECT.
+# Copyright (C) 2019 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2019-01-10 16:44-0600\n"
+"PO-Revision-Date: 2019-01-10 16:38-0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: blogApp/__init__.py:20
+msgid "Please login to access this page."
+msgstr "请登录查看"
+
+#: blogApp/forms.py:12 blogApp/forms.py:19 blogApp/forms.py:38
+msgid "Username"
+msgstr "用户名"
+
+#: blogApp/forms.py:13 blogApp/forms.py:21 blogApp/forms.py:63
+msgid "Password"
+msgstr "密码"
+
+#: blogApp/forms.py:14
+msgid "Remember Me"
+msgstr "记住我"
+
+#: blogApp/forms.py:15 blogApp/templates/login.html:10
+msgid "Sign In"
+msgstr "登录"
+
+#: blogApp/forms.py:20 blogApp/forms.py:59
+msgid "Email"
+msgstr "邮箱"
+
+#: blogApp/forms.py:22 blogApp/forms.py:65
+msgid "Repeat Password"
+msgstr "重置密码"
+
+#: blogApp/forms.py:23 blogApp/templates/register.html:5
+msgid "Register"
+msgstr "注册"
+
+#: blogApp/forms.py:28
+msgid "Please use a different username"
+msgstr "用户名不可用"
+
+#: blogApp/forms.py:34
+msgid "Please use a different email"
+msgstr "邮箱不可用"
+
+#: blogApp/forms.py:39
+msgid "About me"
+msgstr "关于我"
+
+#: blogApp/forms.py:40 blogApp/forms.py:55
+msgid "Submit"
+msgstr "提交"
+
+#: blogApp/forms.py:50
+msgid "Please use a different username."
+msgstr "请选择其他的用户名"
+
+#: blogApp/forms.py:54
+msgid "Say something"
+msgstr "说点什么呢..."
+
+#: blogApp/forms.py:60 blogApp/forms.py:66
+msgid "Request Password Reset"
+msgstr "重置密码"
+
+#: blogApp/templates/404.html:4
+msgid "File Not Found"
+msgstr "未找到文件"
+
+#: blogApp/templates/404.html:5 blogApp/templates/500.html:6
+msgid "Back"
+msgstr "返回"
+
+#: blogApp/templates/500.html:4
+msgid "An unexpected error has occurred"
+msgstr "未知错误"
+
+#: blogApp/templates/500.html:5
+msgid "The administrator has been notified. Sorry for the inconvenience!"
+msgstr "已通知管理员"
+
+#: blogApp/templates/_post.html:14
+#, python-format
+msgid "%(username)s said %(when)s"
+msgstr "%(username)s 说 %(when)s"
+
+#: blogApp/templates/base.html:4
+msgid "Welcome to Microblog"
+msgstr "欢迎"
+
+#: blogApp/templates/base.html:21
+msgid "Home"
+msgstr "主页"
+
+#: blogApp/templates/base.html:22
+msgid "Explore"
+msgstr "随便瞅瞅"
+
+#: blogApp/templates/base.html:26
+msgid "Login"
+msgstr "登录"
+
+#: blogApp/templates/base.html:28
+msgid "Profile"
+msgstr "个人主页"
+
+#: blogApp/templates/base.html:29
+msgid "Logout"
+msgstr "退出"
+
+#: blogApp/templates/edit_profile.html:5
+msgid "Edit Profile"
+msgstr "编辑主页"
+
+#: blogApp/templates/index.html:6
+#, python-format
+msgid "Hi, %(username)s!"
+msgstr "你好啊，%(username)s! "
+
+#: blogApp/templates/index.html:20 blogApp/templates/user.html:31
+msgid "Newer posts"
+msgstr "往前"
+
+#: blogApp/templates/index.html:25 blogApp/templates/user.html:36
+msgid "Older posts"
+msgstr "往后"
+
+#: blogApp/templates/login.html:17
+msgid "New User?"
+msgstr "新用户？"
+
+#: blogApp/templates/login.html:17
+msgid "Click to Register!"
+msgstr "点击注册！"
+
+#: blogApp/templates/login.html:19
+msgid "Forgot Your Password?"
+msgstr "忘记密码？"
+
+#: blogApp/templates/login.html:20
+msgid "Click to Reset It"
+msgstr "点击重置！"
+
+#: blogApp/templates/reset_password.html:6
+msgid "Reset Your Password"
+msgstr "重置密码"
+
+#: blogApp/templates/reset_password_request.html:5
+msgid "Reset Password"
+msgstr "重置密码"
+
+#: blogApp/templates/user.html:8
+msgid "User"
+msgstr "用户"
+
+#: blogApp/templates/user.html:11
+msgid "Last seen on"
+msgstr "上次登录"
+
+#: blogApp/templates/user.html:13
+#, python-format
+msgid "%(count)d followers"
+msgstr "%(count)d人关注TA"
+
+#: blogApp/templates/user.html:13
+#, python-format
+msgid "%(count)d following"
+msgstr "TA关注%(count)d 人"
+
+#: blogApp/templates/user.html:15
+msgid "Edit your profile"
+msgstr "编辑你的主页"
+
+#: blogApp/templates/user.html:17
+msgid "Follow"
+msgstr "关注"
+
+#: blogApp/templates/user.html:19
+msgid "Unfollow"
+msgstr "取消关注"
+

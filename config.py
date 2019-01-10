@@ -30,6 +30,9 @@ class Config(object):
   ADMINS = ['clu7sun@gmail.com']
 
   '''
-  just for testing
+  set to 3 for testing
   '''
-  POSTS_PER_PAGE = 3
+  POSTS_PER_PAGE = 25
+
+
+  LANGUAGES = ['en', 'zh']

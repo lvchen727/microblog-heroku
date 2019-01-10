@@ -1,4 +1,4 @@
-[See original project](https://github.com/miguelgrinberg/microblog/tree/v0.4)
+[See original project](https://github.com/miguelgrinberg/microblog/tree/v0.4) - The tutorial by Miguel is awesome!!
 
 
 # Tutorial Chapters:
@@ -15,6 +15,9 @@
 10. [OAuth](https://blog.miguelgrinberg.com/post/oauth-authentication-with-flask)
 	[see template example about OAuth](https://github.com/miguelgrinberg/flask-oauth-example)
 11. [Facelift](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xi-facelift)
+12. [Dates and Time](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xii-dates-and-times)
+13. [Flask-Babel](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xiii-i18n-and-l10n)
+
 
 # Extensions or tools:
 1. **Flask-WTF** : thin wrapper around WTForms package. see Chapter 3.
@@ -47,4 +50,23 @@ def make_shell_context():
 12. [OAuth](https://blog.miguelgrinberg.com/post/oauth-authentication-with-flask)
 13. [Flask-Dance](https://github.com/singingwolfboy/flask-dance)
 14. Bootstrap: CSS Framework, **flask-bootstrap**
+15. **Moment.js**: a small open-source JavaScript library that takes date and time rendering to another level, as it provides every imaginable formatting option, and then some. **flask-moment**
 
+```
+moment('2017-09-28T21:45:23Z').format('L')
+"09/28/2017"
+moment('2017-09-28T21:45:23Z').format('LL')
+"September 28, 2017"
+moment('2017-09-28T21:45:23Z').format('LLL')
+"September 28, 2017 2:45 PM"
+moment('2017-09-28T21:45:23Z').format('LLLL')
+"Thursday, September 28, 2017 2:45 PM"
+moment('2017-09-28T21:45:23Z').format('dddd')
+"Thursday"
+moment('2017-09-28T21:45:23Z').fromNow()
+"7 hours ago"
+moment('2017-09-28T21:45:23Z').calendar()
+"Today at 2:45 PM"
+```
+
+16. **Flask-Babel** makes translation easy

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from config import Config 
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -8,6 +8,8 @@ import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
 from flask_mail import Mail
 from flask_bootstrap import Bootstrap
+from flask_moment import Moment
+from flask_babel import Babel, lazy_gettext as _l
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -15,9 +17,18 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login' #The 'login' value  is the function (or endpoint) name for the login view. In other words, the name you would use in a url_for() call to get the URL.
+login.lgin_message = _l('Please login to access this page.')
 mail = Mail(app)
 bootstrap = Bootstrap(app)
+moment = Moment(app)
+babel = Babel(app)
 
+# handles translation
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    
+    
 if not app.debug:
 
   # send errors via email
@@ -51,4 +62,5 @@ if not app.debug:
   app.logger.info('Microblog startup')
 
 
-  from blogApp import routes, models, errors
+
+from blogApp import routes, models, errors
