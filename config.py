@@ -36,3 +36,9 @@ class Config(object):
 
 
   LANGUAGES = ['en', 'zh']
+
+
+  '''
+  Microsoft Translate text API which accepts  HTTP requests
+  '''
+  MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-10 16:44-0600\n"
+"POT-Creation-Date: 2019-01-11 11:54-0600\n"
 "PO-Revision-Date: 2019-01-10 16:38-0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -78,6 +78,14 @@ msgstr "说点什么呢..."
 msgid "Request Password Reset"
 msgstr "重置密码"
 
+#: blogApp/translate.py:9
+msgid "Error: the translation service is not configured."
+msgstr ""
+
+#: blogApp/translate.py:16
+msgid "Error: the translation service failed."
+msgstr ""
+
 #: blogApp/templates/404.html:4
 msgid "File Not Found"
 msgstr "未找到文件"
@@ -98,6 +106,10 @@ msgstr "已通知管理员"
 #, python-format
 msgid "%(username)s said %(when)s"
 msgstr "%(username)s 说 %(when)s"
+
+#: blogApp/templates/_post.html:26
+msgid "Translate"
+msgstr ""
 
 #: blogApp/templates/base.html:4
 msgid "Welcome to Microblog"
@@ -123,6 +135,10 @@ msgstr "个人主页"
 msgid "Logout"
 msgstr "退出"
 
+#: blogApp/templates/base.html:67
+msgid "Error: Could not contact server."
+msgstr ""
+
 #: blogApp/templates/edit_profile.html:5
 msgid "Edit Profile"
 msgstr "编辑主页"
@@ -132,11 +148,11 @@ msgstr "编辑主页"
 msgid "Hi, %(username)s!"
 msgstr "你好啊，%(username)s! "
 
-#: blogApp/templates/index.html:20 blogApp/templates/user.html:31
+#: blogApp/templates/index.html:21 blogApp/templates/user.html:31
 msgid "Newer posts"
 msgstr "往前"
 
-#: blogApp/templates/index.html:25 blogApp/templates/user.html:36
+#: blogApp/templates/index.html:26 blogApp/templates/user.html:36
 msgid "Older posts"
 msgstr "往后"
 

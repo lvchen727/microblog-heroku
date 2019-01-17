@@ -104,3 +104,8 @@ ENV/
 
 #log files
 logs/
+
+#key files
+key
+
+.DS_Store

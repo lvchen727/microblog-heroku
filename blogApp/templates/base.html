@@ -18,7 +18,7 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('index') }}">{{ _('Home')}} </a></li>
+                    <li><a href="{{ url_for('index') }}">{{ _('Home') }}</a></li>
                     <li><a href="{{ url_for('explore') }}">{{ _('Explore') }}</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -49,9 +49,23 @@
     </div>
 {% endblock %}
 
-
 {% block scripts %}
     {{ super() }}
     {{ moment.include_moment() }}
     {{ moment.lang(g.locale) }}
+
+    <script>
+        function translate(sourceElem, destElem, sourceLang, destLang) {
+            $(destElem).html('<img src="{{ url_for('static', filename='loading.gif') }}">');
+            $.post('/translate', {
+                text: $(sourceElem).text(),
+                source_language: sourceLang,
+                dest_language: destLang
+            }).done(function(response) { //promise - advanced callback
+                $(destElem).text(response['text'])
+            }).fail(function() {
+                $(destElem).text("{{ _('Error: Could not contact server.') }}");
+            });
+        }
+    </script>
 {% endblock %}

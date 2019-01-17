@@ -1,4 +1,4 @@
-2019-01-10 16:59:40,909 ERROR: Exception on /user/clu [GET] [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py:1761]
+2019-01-11 11:58:37,821 ERROR: Exception on / [GET] [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,7 +14,41 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/routes.py", line 101, in user
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/routes.py", line 49, in index
+    prev_url=prev_url)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/templating.py", line 58, in get_source
+    return self._get_source_fast(environment, template)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/templating.py", line 86, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: index.html
+2019-01-11 11:58:50,566 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:62]
+2019-01-11 11:58:55,117 ERROR: Exception on /user/clu [GET] [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/routes.py", line 106, in user
     return render_template('user.html', user=user, posts=posts)
   File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/templating.py", line 135, in render_template
     context, ctx.app)
@@ -53,3 +87,4 @@ Traceback (most recent call last):
   File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_moment.py", line 73, in _timestamp_as_iso_8601
     return timestamp.strftime('%Y-%m-%dT%H:%M:%S' + tz)
 jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'timestamp'
+2019-01-14 13:40:37,767 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:62]

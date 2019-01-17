@@ -1,4 +1,4 @@
-2019-01-10 16:03:19,067 ERROR: Exception on /index [GET] [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py:1761]
+2019-01-11 11:58:32,717 ERROR: Exception on / [GET] [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,58 +14,86 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/routes.py", line 41, in index
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/routes.py", line 49, in index
     prev_url=prev_url)
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/templating.py", line 135, in render_template
-    context, ctx.app)
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/templating.py", line 117, in _render
-    rv = template.render(context)
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/templating.py", line 58, in get_source
+    return self._get_source_fast(environment, template)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/templating.py", line 86, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: index.html
+2019-01-11 11:58:32,734 ERROR: Exception on / [GET] [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/templates/index.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
-    {%- block html %}
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
-    {% block body -%}
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 21, in block "body"
-    {% block navbar %}
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/templates/base.html", line 21, in block "navbar"
-    <li><a href="{{ url_for('index') }}">{{ _('Home')}} </a></li>
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/ext.py", line 134, in _gettext_alias
-    return __context.call(__context.resolve('gettext'), *args, **kwargs)
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/ext.py", line 140, in gettext
-    rv = __context.call(func, __string)
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_babel/__init__.py", line 116, in <lambda>
-    lambda x: get_translations().ugettext(x),
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_babel/__init__.py", line 227, in get_translations
-    [get_locale()],
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_babel/__init__.py", line 257, in get_locale
-    rv = babel.locale_selector_func()
-  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py", line 62, in get_locale
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
-NameError: name 'request' is not defined
-2019-01-10 16:03:59,048 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:56]
-2019-01-10 16:22:06,390 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:56]
-2019-01-10 16:29:53,771 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:56]
-2019-01-10 16:33:17,712 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:56]
-2019-01-10 16:34:07,632 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:56]
-2019-01-10 16:34:53,478 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:64]
-2019-01-10 16:36:27,714 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:64]
-2019-01-10 16:48:46,962 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:64]
-2019-01-10 16:51:14,651 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:64]
-2019-01-10 16:52:00,776 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:64]
-2019-01-10 16:52:42,337 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:64]
-2019-01-10 16:54:16,170 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:64]
-2019-01-10 16:54:51,509 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:64]
-2019-01-10 16:59:05,989 INFO: Microblog startup [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/__init__.py:64]
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/routes.py", line 49, in index
+    prev_url=prev_url)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/templating.py", line 58, in get_source
+    return self._get_source_fast(environment, template)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/templating.py", line 86, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: index.html
+2019-01-11 11:58:32,754 ERROR: Exception on / [GET] [in /Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/blogApp/routes.py", line 49, in index
+    prev_url=prev_url)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/templating.py", line 58, in get_source
+    return self._get_source_fast(environment, template)
+  File "/Users/clu/Development/learn/learn-flask/simple-flask-heroku/venv/lib/python3.6/site-packages/flask/templating.py", line 86, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: index.html
