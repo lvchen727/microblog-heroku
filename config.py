@@ -45,3 +45,9 @@ class Config(object):
   Microsoft Translate text API which accepts  HTTP requests
   '''
   MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
+
+
+  '''
+  Elasticsearch Config
+  '''
+  ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')

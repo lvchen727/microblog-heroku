@@ -24,7 +24,7 @@
       * repack codes into modules so that we could reuse them for later projects
       * Use application factory, so we could initiate different application instances for testing
 
-
+16. [Full text search](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvi-full-text-search)
 
 # Extensions or tools:
 1. **Flask-WTF** : thin wrapper around WTForms package. see Chapter 3.
@@ -79,6 +79,12 @@ moment('2017-09-28T21:45:23Z').calendar()
 16. **Flask-Babel** makes translation easy
 17. [Single-page application](https://en.wikipedia.org/wiki/Single-page_application): a web application or web site that interacts with the user by dynamically rewriting the current page rather than loading entire new pages from a server. Tools to achieve SPA includes Javascript, Ajax etc. . In JavaScript there is no such thing as waiting for something, everything is asynchronous.  JavaScript works a lot with callback functions, or a more advanced form of callbacks called promises. 
 18. **guess_language**: determine the language being used
+
+19. **Full text search engines supported by Flask**
+
+Support for full-text search is not standardized like relational databases are. There are several open-source full-text engines: Elasticsearch, Apache Solr, Whoosh, Xapian, Sphinx, etc. As if this isn't enough choice, there are several databases that also provide searching capabilities that are comparable to dedicated search engines like the ones I enumerated above. SQLite, MySQL and PostgreSQL all offer some support for searching text, and NoSQL databases such as MongoDB and CouchDB do too.
+
+- [Elasticsearch engine installation](https://www.elastic.co/guide/en/elasticsearch/reference/6.5/docker.html)
 
 # How to run the app locally
 ```

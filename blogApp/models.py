@@ -10,12 +10,90 @@ from hashlib import md5
 import jwt
 from time import time
 from flask import current_app
+from blogApp.search import add_to_index, remove_from_index, query_index
 
 followers = db.Table('followers',
     db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
     db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
 )
 
+
+
+'''
+Integrate search engine with SQLAlchemy
+
+ a class method is a special method that is associated with the class and not a particular instance. 
+'''
+class SearchableMixin(object):
+
+  '''
+   search method wraps the query_index() function from app/search.py to replace the list of object IDs with actual objects.
+  '''
+  @classmethod
+  def search(cls, expression, page, per_page):
+    ids, total = query_index(cls.__tablename__, expression, page, per_page)
+    if total == 0:
+      return cls.query.filter_by(id = 0), 0
+    when = []
+    for i in range(len(ids)):
+      when.append((ids[i], i))
+    return cls.query.filter(cls.id.in_(ids)).order_by(db.case(when, value = cls.id)), total
+
+
+  '''
+  The method is to see what objects are going to be added, modified, deleted, available as session.new, session.dirty, session.deleted.
+  These objects are not going to be available anymore after the session is committed, so I need to save them before the commit takes place.
+  I'm using a session._changes dictionary to write these objects in a place that is going to survive the session commit, because as soon as the session is committed I will be using them to update the Elasticsearch index.
+ '''
+  @classmethod
+  def before_commit(cls, session):
+    session._changes = {
+      'add': list(session.new),
+      'update': list(session.dirty),
+      'delete':list(session.deleted)
+    }
+
+
+
+
+  @classmethod
+  def after_commit(cls, session):
+    for obj in session._changes['add']:
+      if isinstance(obj, SearchableMixin):
+        add_to_index(obj.__tablename__, obj)
+    for obj in session._changes['update']:
+      if isinstance(obj, SearchableMixin):
+        add_to_index(obj.__tablename__, obj)
+    for obj in session._changes['delete']:
+      if isinstance(obj, SearchableMixin):
+        remove_from_index(obj.__tablename__, obj)
+    session._changes = None
+
+
+  '''
+  The method is to refresh an index with all the data from the relational side.
+  '''
+  @classmethod
+  def reindex(cls):
+    for obj in cls.query:
+      add_to_index(cls.__tablename__, obj)
+
+
+db.event.listen(db.session, 'before_commit', SearchableMixin.before_commit)
+db.event.listen(db.session, 'after_commit', SearchableMixin.after_commit)
+
+
+class Post(SearchableMixin, db.Model):
+
+    # any model that needs indexing needs to define a __searchable__ class attribute that lists the fields that need to be included in the index.
+    __searchable__ = ['body']
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.String(140))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow) # timestamp index post so can retrieve them in  chronological order.
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    language = db.Column(db.String(5))
+    def __repr__(self):
+        return '<Post {}>'.format(self.body)
 
 '''
  For the User model above, the corresponding table in the database will be named user. 
@@ -101,15 +179,6 @@ class User(UserMixin, db.Model):
         return
     return User.query.get(id)
 
-class Post(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow) # timestamp index post so can retrieve them in  chronological order.
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    language = db.Column(db.String(5))
-    def __repr__(self):
-        return '<Post {}>'.format(self.body)
-
 
 
 '''
@@ -118,3 +187,7 @@ The user loader is registered with Flask-Login with the @login.user_loader decor
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+
+
+
