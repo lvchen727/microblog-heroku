@@ -1,5 +1,7 @@
 [See original project](https://github.com/miguelgrinberg/microblog/tree/v0.4) - The tutorial by Miguel is awesome and interesting!!
 
+[See my version of microblog app deployed on heroku](https://microblog-clu.herokuapp.com/auth/login?next=%2F)
+
 
 # Tutorial Chapters:
 
@@ -163,6 +165,19 @@ web: flask db upgrade; flask translate compile; gunicorn microblog:app
 Because first two commands in Procfile are based on flask commands, I need to set FLASK_APP env variable
 
 ` heroku config:set FLASK_APP=microblog.py`
+
+9. Deploy the App
+
+```
+git commit -a -m "heroku deployment changes"
+git push heroku deploy:master
+
+```
+
+10. Deploying Application Updates
+
+Just commit and push again!
+
 
 # How to run the app locally
 ```
