@@ -17,6 +17,13 @@
 11. [Facelift](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xi-facelift)
 12. [Dates and Time](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xii-dates-and-times)
 13. [Flask-Babel](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xiii-i18n-and-l10n)
+14. [Ajax](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xiv-ajax)
+15. [Better App structure](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-a-better-application-structure)
+
+      Try to restructure the codes in a way"
+      * repack codes into modules so that we could reuse them for later projects
+      * Use application factory, so we could initiate different application instances for testing
+
 
 
 # Extensions or tools:
@@ -79,5 +86,7 @@ cd simple-flask-heroku
 virtualenv venv
 . venv/bin/activate
 export FLASK_APP=microblog.py 
+export FLASK_ENV=development
+flask run
 ```
 

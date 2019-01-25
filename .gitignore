@@ -106,6 +106,6 @@ ENV/
 logs/
 
 #key files
-key
+.env
 
 .DS_Store
