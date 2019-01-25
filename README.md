@@ -189,3 +189,6 @@ export FLASK_ENV=development
 flask run
 ```
 
+# Other heroku deployment tutorial
+
+[deploy app to heroku](https://medium.com/the-andela-way/deploying-a-python-flask-app-to-heroku-41250bda27d0)
