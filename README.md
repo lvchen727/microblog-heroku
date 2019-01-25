@@ -25,6 +25,10 @@
       * Use application factory, so we could initiate different application instances for testing
 
 16. [Full text search](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvi-full-text-search)
+17. [Deploy on Heroku](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xviii-deployment-on-heroku)
+
+
+
 
 # Extensions or tools:
 1. **Flask-WTF** : thin wrapper around WTForms package. see Chapter 3.
@@ -85,6 +89,80 @@ moment('2017-09-28T21:45:23Z').calendar()
 Support for full-text search is not standardized like relational databases are. There are several open-source full-text engines: Elasticsearch, Apache Solr, Whoosh, Xapian, Sphinx, etc. As if this isn't enough choice, there are several databases that also provide searching capabilities that are comparable to dedicated search engines like the ones I enumerated above. SQLite, MySQL and PostgreSQL all offer some support for searching text, and NoSQL databases such as MongoDB and CouchDB do too.
 
 - [Elasticsearch engine installation](https://www.elastic.co/guide/en/elasticsearch/reference/6.5/docker.html)
+
+
+# Deploy on Heroku
+
+
+1. create app `flask-microblog`
+`heroku apps:create flask-microblog`
+
+2. verify app
+`git remote -v`
+
+3. Working with a Heroku Postgres Database
+`heroku addons:add heroku-postgresql:hobby-dev`
+
+4. logging to stdout(required by heroku)
+// modify __init__.py and config.py
+
+```
+class Config(object):
+    # ...
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
+```
+
+```
+def create_app(config_class=Config):
+    # ...
+    if not app.debug and not app.testing:
+        # ...
+
+        if app.config['LOG_TO_STDOUT']:
+            stream_handler = logging.StreamHandler()
+            stream_handler.setLevel(logging.INFO)
+            app.logger.addHandler(stream_handler)
+        else:
+            if not os.path.exists('logs'):
+                os.mkdir('logs')
+            file_handler = RotatingFileHandler('logs/microblog.log',
+                                               maxBytes=10240, backupCount=10)
+            file_handler.setFormatter(logging.Formatter(
+                '%(asctime)s %(levelname)s: %(message)s '
+                '[in %(pathname)s:%(lineno)d]'))
+            file_handler.setLevel(logging.INFO)
+            app.logger.addHandler(file_handler)
+
+        app.logger.setLevel(logging.INFO)
+        app.logger.info('Microblog startup')
+
+    return app
+```
+
+
+`heroku config:set LOG_TO_STDOUT=1`
+
+5. Elasticsearch Hosting
+```
+heroku addons:create searchbox:starter
+heroku config:get SEARCHBOX_URL
+heroku config:set ELASTICSEARCH_URL=<your-elasticsearch-url>
+```
+
+6. Update requirements with `gunicorn` and `psycopg2`
+
+7. Procfile
+Heroku needs to know how to execute the application, and for that it uses a file named Procfile in the root directory of the application. The format of this file is simple, each line includes a process name, a colon, and then the command that starts the process. 
+
+```
+web: flask db upgrade; flask translate compile; gunicorn microblog:app
+```
+
+8. Add configuration
+
+Because first two commands in Procfile are based on flask commands, I need to set FLASK_APP env variable
+
+` heroku config:set FLASK_APP=microblog.py`
 
 # How to run the app locally
 ```

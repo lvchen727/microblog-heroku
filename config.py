@@ -51,3 +51,9 @@ class Config(object):
   Elasticsearch Config
   '''
   ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+
+
+  '''
+  Heroku expects applications to log directly to stdout
+  '''
+  LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
