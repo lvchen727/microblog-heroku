@@ -181,7 +181,7 @@ Just commit and push again!
 
 ## How to run the app locally
 ```
-cd simple-flask-heroku
+cd microblog-heroku
 virtualenv venv
 . venv/bin/activate
 export FLASK_APP=microblog.py 
